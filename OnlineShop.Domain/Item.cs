@@ -10,5 +10,7 @@ namespace OnlineShop.Domain
         public string Name { get; set; }
         public int Cost { get; set; }
         public int Count { get; set; }
+        public int OrderId { get; set; }
+        public Order Order { get; set; }
     }
 }

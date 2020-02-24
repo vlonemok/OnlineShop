@@ -9,5 +9,7 @@ namespace OnlineShop.Domain
         public int Id { get; set; }
         public string OrderDate { get; set; }
         public int ClientId { get; set; }
+        public Client Client { get; set; }
+        public ICollection<Item> Items { get; set; }
     }
 }

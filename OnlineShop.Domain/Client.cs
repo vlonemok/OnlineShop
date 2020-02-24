@@ -11,5 +11,6 @@ namespace OnlineShop.Domain
         public string Surname { get; set; }
         public int PhoneNumber { get; set; }
         public string Adress { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }

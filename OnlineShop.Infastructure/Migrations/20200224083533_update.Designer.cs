@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineShop.Infastructure;
 
 namespace OnlineShop.Infastructure.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20200224083533_update")]
+    partial class update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -58,12 +60,7 @@ namespace OnlineShop.Infastructure.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("OrderId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("OrderId");
 
                     b.ToTable("Items");
                 });
@@ -83,26 +80,7 @@ namespace OnlineShop.Infastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClientId");
-
                     b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("OnlineShop.Domain.Item", b =>
-                {
-                    b.HasOne("OnlineShop.Domain.Order", "Order")
-                        .WithMany("Items")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("OnlineShop.Domain.Order", b =>
-                {
-                    b.HasOne("OnlineShop.Domain.Client", "Client")
-                        .WithMany("Orders")
-                        .HasForeignKey("ClientId")
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

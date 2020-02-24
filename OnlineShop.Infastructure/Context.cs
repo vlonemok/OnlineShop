@@ -14,7 +14,6 @@ namespace OnlineShop.Infastructure
     {
         public DbSet<Item> Items { get; set; }
         public DbSet<Client> Clients { get; set; }
-        public DbSet<Cart> Carts { get; set; }
         public DbSet<Order> Orders { get; set; }
 
         public Context()
@@ -22,9 +21,31 @@ namespace OnlineShop.Infastructure
             Database.EnsureCreated();
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Client>()
+                .HasKey(x => x.Id);
+            modelBuilder.Entity<Item>()
+                .HasKey(x => x.Id);
+
+            modelBuilder.Entity<Item>()
+                .HasOne(x => x.Order)
+                .WithMany(x => x.Items)
+                .HasForeignKey(x => x.OrderId);
+
+            modelBuilder.Entity<Order>()
+                .HasOne(x => x.Client)
+                .WithMany(x => x.Orders)
+                .HasForeignKey(x => x.ClientId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=OnlineShopDB;Trusted_Connection=True;");
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=OnlineShopDB;Trusted_Connection=True;");
+            }
         }
     }
 }
