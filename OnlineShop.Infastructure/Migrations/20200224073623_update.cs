@@ -57,8 +57,8 @@ namespace OnlineShop.Infastructure.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ClientId = table.Column<int>(nullable: false),
-                    OrderDate = table.Column<string>(nullable: true)
+                    OrderDate = table.Column<string>(nullable: true),
+                    ClientId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

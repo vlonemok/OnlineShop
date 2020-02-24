@@ -28,7 +28,7 @@ namespace OnlineShop.Presenter
                 //db.Carts.AddRange(cart1, cart2);
                 //db.Clients.AddRange(client1, client2);
                 //db.Orders.AddRange(order1, order2);
-                ////db.SaveChanges();
+                //db.SaveChanges();
                 //Console.WriteLine("Changes saved");
 
                 Console.WriteLine("Items: ");
@@ -52,7 +52,7 @@ namespace OnlineShop.Presenter
                 Console.WriteLine("Orders: ");
                 var order = db.Orders.ToList();
                 foreach (Order o in order) {
-                    Console.WriteLine($"{o.Id} clientId = {o.ClientId}, orderDate = {o.OrderDate}");
+                    Console.WriteLine($"{o.Id} clientId = {o.ClientId}, orderDate = {o.OrderDate} ");
                 }
 
                 Console.ReadKey();

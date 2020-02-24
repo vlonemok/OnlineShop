@@ -9,7 +9,7 @@ using OnlineShop.Infastructure;
 namespace OnlineShop.Infastructure.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20200223192655_update")]
+    [Migration("20200224073623_update")]
     partial class update
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
