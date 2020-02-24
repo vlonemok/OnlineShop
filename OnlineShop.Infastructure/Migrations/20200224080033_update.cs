@@ -10,7 +10,7 @@ namespace OnlineShop.Infastructure.Migrations
                 name: "Carts",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Price = table.Column<int>(nullable: false),
                     Number = table.Column<int>(nullable: false)
@@ -24,7 +24,7 @@ namespace OnlineShop.Infastructure.Migrations
                 name: "Clients",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
                     Surname = table.Column<string>(nullable: true),
@@ -40,7 +40,7 @@ namespace OnlineShop.Infastructure.Migrations
                 name: "Items",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
                     Cost = table.Column<int>(nullable: false),
@@ -55,7 +55,7 @@ namespace OnlineShop.Infastructure.Migrations
                 name: "Orders",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     OrderDate = table.Column<string>(nullable: true),
                     ClientId = table.Column<int>(nullable: false)
@@ -64,18 +64,6 @@ namespace OnlineShop.Infastructure.Migrations
                 {
                     table.PrimaryKey("PK_Orders", x => x.Id);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Clients_Id",
-                table: "Clients",
-                column: "Id",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Items_Id",
-                table: "Items",
-                column: "Id",
-                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

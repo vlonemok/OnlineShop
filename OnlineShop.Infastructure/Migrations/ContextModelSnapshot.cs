@@ -57,9 +57,6 @@ namespace OnlineShop.Infastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Id")
-                        .IsUnique();
-
                     b.ToTable("Clients");
                 });
 
@@ -80,9 +77,6 @@ namespace OnlineShop.Infastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Id")
-                        .IsUnique();
 
                     b.ToTable("Items");
                 });

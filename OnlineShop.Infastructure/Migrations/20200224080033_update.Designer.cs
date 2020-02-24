@@ -9,7 +9,7 @@ using OnlineShop.Infastructure;
 namespace OnlineShop.Infastructure.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20200224073623_update")]
+    [Migration("20200224080033_update")]
     partial class update
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -59,9 +59,6 @@ namespace OnlineShop.Infastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Id")
-                        .IsUnique();
-
                     b.ToTable("Clients");
                 });
 
@@ -82,9 +79,6 @@ namespace OnlineShop.Infastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Id")
-                        .IsUnique();
 
                     b.ToTable("Items");
                 });
