@@ -9,6 +9,12 @@
     <Compile Remove="Migrations\20200224073623_update.Designer.cs" />
     <Compile Remove="Migrations\20200224080033_update.cs" />
     <Compile Remove="Migrations\20200224080033_update.Designer.cs" />
+    <Compile Remove="Migrations\20200224083533_update.cs" />
+    <Compile Remove="Migrations\20200224083533_update.Designer.cs" />
+    <Compile Remove="Migrations\20200224085810_fluent.cs" />
+    <Compile Remove="Migrations\20200224085810_fluent.Designer.cs" />
+    <Compile Remove="Migrations\20200224125210_InitMigration.cs" />
+    <Compile Remove="Migrations\20200224125210_InitMigration.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,6 +27,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OnlineShop.Domain\OnlineShop.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>

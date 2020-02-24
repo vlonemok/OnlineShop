@@ -25,19 +25,22 @@ namespace OnlineShop.Infastructure
         {
             modelBuilder.Entity<Client>()
                 .HasKey(x => x.Id);
-            modelBuilder.Entity<Item>()
-                .HasKey(x => x.Id);
 
-            modelBuilder.Entity<Item>()
+            modelBuilder.Entity<OrderItems>()
+                .HasKey(x => new { x.OrderID, x.ItemId });
+
+            modelBuilder.Entity<OrderItems>()
                 .HasOne(x => x.Order)
-                .WithMany(x => x.Items)
-                .HasForeignKey(x => x.OrderId);
+                .WithMany(x => x.OrderItems);
+
+            modelBuilder.Entity<OrderItems>()
+                .HasOne(x => x.Item)
+                .WithMany(x => x.Orders);
 
             modelBuilder.Entity<Order>()
                 .HasOne(x => x.Client)
                 .WithMany(x => x.Orders)
-                .HasForeignKey(x => x.ClientId)
-                .OnDelete(DeleteBehavior.ClientSetNull);
+                .HasForeignKey(x => x.ClientId);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

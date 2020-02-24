@@ -28,11 +28,6 @@ namespace OnlineShop.Presenter
                 db.SaveChanges();
                 Console.WriteLine("Changes saved");
 
-                var clients = db.Clients
-                    .AsQueryable()
-                    .Include(x => x.Orders)
-                    .ToList();
-
                 Console.WriteLine("Items: ");
                 var item = db.Items.ToList();
                 foreach (Item i in item) {

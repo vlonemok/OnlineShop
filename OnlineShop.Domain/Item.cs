@@ -11,6 +11,6 @@ namespace OnlineShop.Domain
         public int Cost { get; set; }
         public int Count { get; set; }
         public int OrderId { get; set; }
-        public Order Order { get; set; }
+        public ICollection<OrderItems> Orders { get; set; }
     }
 }

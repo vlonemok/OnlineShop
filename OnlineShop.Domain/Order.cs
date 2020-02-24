@@ -10,6 +10,6 @@ namespace OnlineShop.Domain
         public string OrderDate { get; set; }
         public int ClientId { get; set; }
         public Client Client { get; set; }
-        public ICollection<Item> Items { get; set; }
+        public ICollection<OrderItems> OrderItems { get; set; }
     }
 }
