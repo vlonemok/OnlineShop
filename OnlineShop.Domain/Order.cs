@@ -6,10 +6,14 @@ namespace OnlineShop.Domain
 {
     public class Order
     {
+        public Order()
+        {
+            Items = new HashSet<OrderItems>();
+        }
         public int Id { get; set; }
-        public string OrderDate { get; set; }
+        public DateTime OrderDate { get; set; }
         public int ClientId { get; set; }
         public Client Client { get; set; }
-        public ICollection<OrderItems> OrderItems { get; set; }
+        public virtual ICollection<OrderItems> Items { get; set; }
     }
 }

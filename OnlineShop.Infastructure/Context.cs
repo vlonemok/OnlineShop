@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System.IO;
 using OnlineShop.Domain;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Reflection;
 
 namespace OnlineShop.Infastructure
 {
@@ -16,39 +17,15 @@ namespace OnlineShop.Infastructure
         public DbSet<Client> Clients { get; set; }
         public DbSet<Order> Orders { get; set; }
 
-        public Context()
-        {
-            Database.EnsureCreated();
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Client>()
-                .HasKey(x => x.Id);
-
-            modelBuilder.Entity<OrderItems>()
-                .HasKey(x => new { x.OrderID, x.ItemId });
-
-            modelBuilder.Entity<OrderItems>()
-                .HasOne(x => x.Order)
-                .WithMany(x => x.OrderItems);
-
-            modelBuilder.Entity<OrderItems>()
-                .HasOne(x => x.Item)
-                .WithMany(x => x.Orders);
-
-            modelBuilder.Entity<Order>()
-                .HasOne(x => x.Client)
-                .WithMany(x => x.Orders)
-                .HasForeignKey(x => x.ClientId);
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            base.OnModelCreating(modelBuilder);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
                 optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=OnlineShopDB;Trusted_Connection=True;");
-            }
         }
     }
 }
