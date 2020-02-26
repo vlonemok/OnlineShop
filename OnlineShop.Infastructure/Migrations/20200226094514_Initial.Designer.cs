@@ -10,7 +10,7 @@ using OnlineShop.Infastructure;
 namespace OnlineShop.Infastructure.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20200224170344_Initial")]
+    [Migration("20200226094514_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -12,21 +12,21 @@ namespace OnlineShop.Presenter
         {
             using (Context db = new Context())
             {
-                //Item shampoo = new Item { Name = "Шамнпунь", Cost = 8 };
-                //Item crisps = new Item { Name = "Чипсы", Cost = 3 };
-                //Item pizza = new Item { Name = "Пицца", Cost = 10 };
+                Item shampoo = new Item { Name = "Шамнпунь", Cost = 8 };
+                Item crisps = new Item { Name = "Чипсы", Cost = 3 };
+                Item pizza = new Item { Name = "Пицца", Cost = 10 };
 
-                //Client client1 = new Client { Name = "Kirill", Surname = "Mokeichev" };
-                //Client client2 = new Client { Name = "Ivan", Surname = "Ivanov" };
+                Client client1 = new Client { Name = "Kirill", Surname = "Mokeichev" };
+                Client client2 = new Client { Name = "Ivan", Surname = "Ivanov" };
 
-                //Order order1 = new Order { ClientId = 1, OrderDate = DateTime.Now };
-                //Order order2 = new Order { ClientId = 2, OrderDate = DateTime.Now };
+                Order order1 = new Order { ClientId = 1, OrderDate = DateTime.Now };
+                Order order2 = new Order { ClientId = 2, OrderDate = DateTime.Now };
 
-                //db.Items.AddRange(shampoo, crisps, pizza);
-                //db.Clients.AddRange(client1, client2);
-                //db.Orders.AddRange(order1, order2);
-                //db.SaveChanges();
-                //Console.WriteLine("Changes saved");
+                db.Items.AddRange(shampoo, crisps, pizza);
+                db.Clients.AddRange(client1, client2);
+                db.Orders.AddRange(order1, order2);
+                db.SaveChanges();
+                Console.WriteLine("Changes saved");
 
                 Console.WriteLine("Items: ");
                 var item = db.Items.ToList();
